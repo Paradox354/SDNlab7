@@ -1,0 +1,153 @@
+{
+	"flows": [
+        {
+			"dpid": 1,
+			"priority": 1,
+			"match": {
+				"in_port": 1
+			},
+			"actions": [{
+					"type": "PUSH_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "SET_FIELD",
+					"field": "vlan_vid",
+					"value": 4096
+				},
+				{
+					"type": "OUTPUT",
+					"port": 3
+				}
+			]
+		},
+		{
+			"dpid": 1,
+			"priority": 1,
+			"match": {
+				"in_port": 2
+			},
+			"actions": [{
+					"type": "PUSH_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "SET_FIELD",
+					"field": "vlan_vid",
+					"value": 4097
+				},
+				{
+					"type": "OUTPUT",
+					"port": 3
+				}
+			]
+		},
+		{
+			"dpid": 1,
+			"priority": 1,
+			"match": {
+				"vlan_vid": 0
+			},
+			"actions": [{
+					"type": "POP_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "OUTPUT",
+					"port": 1
+				}
+			]
+		},
+		{
+			"dpid": 1,
+			"priority": 1,
+			"match": {
+				"vlan_vid": 1
+			},
+			"actions": [{
+					"type": "POP_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "OUTPUT",
+					"port": 2
+				}
+			]
+		},
+		{
+			"dpid": 2,
+			"priority": 1,
+			"match": {
+				"in_port": 1
+			},
+			"actions": [{
+					"type": "PUSH_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "SET_FIELD",
+					"field": "vlan_vid",
+					"value": 4096
+				},
+				{
+					"type": "OUTPUT",
+					"port": 3
+				}
+			]
+		}, 
+        {
+			"dpid": 2,
+			"priority": 1,
+			"match": {
+				"in_port": 2
+			},
+			"actions": [{
+					"type": "PUSH_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "SET_FIELD",
+					"field": "vlan_vid",
+					"value": 4097
+				},
+				{
+					"type": "OUTPUT",
+					"port": 3
+				}
+			]
+		},
+		{
+			"dpid": 2,
+			"priority": 1,
+			"match": {
+				"vlan_vid": 0
+			},
+			"actions": [{
+					"type": "POP_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "OUTPUT",
+					"port": 1
+				}
+			]
+		},
+		{
+			"dpid": 2,
+			"priority": 1,
+			"match": {
+				"vlan_vid": 1
+			},
+			"actions": [{
+					"type": "POP_VLAN",
+					"ethertype": 33024
+				},
+				{
+					"type": "OUTPUT",
+					"port": 2
+				}
+			]
+		}
+	]
+}
+
